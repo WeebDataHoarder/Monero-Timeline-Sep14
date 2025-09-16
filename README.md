@@ -14,7 +14,7 @@ Qubic ignored any possible impact on end users or privacy of end users.
 
 This exact same proven situation happened on blocks 3499670 3499671 3499672 3499675 3499676 on the now orphaned chain.
 
-A total of [115 transactions](data/transactions/invalidated.txt) were invalidated. These can no longer be mined. They are effectively refunded to the sender. If the sender is an atomic swap, that could cause further issues.
+A total of [115 transactions](data/transactions/invalidated.txt) were invalidated. These can no longer be mined. They are effectively refunded to the sender. If the sender is an atomic swap, that could cause further complications and will require special care from participants.
 
 The sender can re-spend these refunded funds as they wish, using the same key image. This will flag a double spend attempt. Additionally, their decoy selection will be done anew and cause an irrevocable loss of privacy.
 
