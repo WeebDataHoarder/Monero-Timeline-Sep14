@@ -50,9 +50,15 @@ We additionally provide the full block headers as mined, which can be used to fu
 ## P2Pool Witness
 
 Although redundant, P2Pool public networks (archives [P2Pool Main](https://p2pool.observer/), [P2Pool Mini](https://mini.p2pool.observer/), [P2Pool Nano](https://nano.p2pool.observer/)) also witnessed the Monero blocks and constructed shares (which are valid Monero blocks with lower PoW).
-P2Pool has to include the _previous Monero block id_ in its templates, which points to previous Monero block they are mining against. This effectively builds up
+P2Pool has to include the _previous Monero block id_ in its templates, which points to previous Monero block they are mining against.
+This effectively builds up on top of previous blocks marking the Monero chain up to that point valid for the miner.
+
+You may need the raw template or the full json representation to access the previous id.
+This is available on the P2Pool Observer sites, though we may archive these within this repository in the future.
 
 Additionally, P2Pool shares included the same invalidated transactions we observed in the orphaned Monero blocks.
+
+This further points to their existence at that point, acting as a witness other than the orphaned blocks.
 
 
 ## Log entries
