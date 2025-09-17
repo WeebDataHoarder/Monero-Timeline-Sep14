@@ -8,7 +8,11 @@ This alternate chain attempted and succeeded in orphaning the then canonical cha
 
 Due to the 10-block confirmation, any reorganizations reaching this length can cause transactions to get invalidated as a side effect of the global output index for its inputs or decoys changing.
 
-The specific technical details were discussed in advance, in past GitHub issues. The Qubic team was aware, we were quoted by them for the specific messages, and a testnet recreation of such an event was done. Several transactions were invalidated then, showing the reality of the damage to be done. 
+The specific technical details were available in advance, in past GitHub issues.
+Additionally, it was discussed in IRC and Matrix channels, with details on why the transactions would become invalidated and its effects.
+
+The Qubic team was aware, we were quoted by them for the specific messages, and a testnet recreation of such an event was done.
+Several transactions were invalidated then, showing the reality of the damage to be done. 
 
 Qubic ignored any possible impact on end users or privacy of end users.
 
