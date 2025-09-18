@@ -39,6 +39,44 @@ This is pure madness, insanity, and malevolence. You can't combat someone insane
 
 > **Qubic is now unequivocally considered a malicious attacker, not only affecting end users but additionally harming their privacy permanently, even after warned _and proven_ of the consequences.**
 
+## Invalidated transactions are being double-spent
+
+Thanks to Rucknium for [gathering data and writing verification code for their case study](https://gist.github.com/Rucknium/d055e95c92b66ba7109194720e9dff2e) for this section.
+
+As of September 17th at 16:40 there have been 58 double-spends from the previously attacker invalidated transactions. These were included in blocks produced by miners that had flushed their mempool.
+
+Monero node operators with the invalidated transactions in their mempool (or loaded via RPC and the [data in this repository](data/transactions/)) can view a summary of these via the `print_pool_stats` command.
+```
+print_pool_stats
+187 tx(es), 673369 bytes total (min 1527, max 49647, avg 3600, median 1536)
+fees 0.061842960000 (avg 0.000330711016 per tx, 0.000000091841 per byte)
+58 double spends, 0 not relayed, 0 failing, 115 older than 10 minutes (oldest 3 days ago), estimated 3 block (6 minutes) backlog
+   Age      Txes       Bytes
+00:00:00      72      196031
+09:09:10       0           0
+18:18:21       0           0
+27:27:32       0           0
+36:36:43       0           0
+45:45:53       0           0
+54:55:04       0           0
+64:04:15       0           0
+73:13:26       0           0
+82:22:37     115      477338
+```
+
+Of note are the existing [115 invalidated transactions](data/transactions/invalidated.txt) produced by the attacker reorganization, of these, `58 double spends` shows how many _key images_ have been double spent.
+
+> **What are key images?**
+> 
+> In Monero, each transaction output is paid to an ephemeral public key.
+> Currently, when spending these as inputs, a ring signature composed of decoy inputs and a unique true spend is produced, but verifiers don't know the true spend.
+> To prevent double-spend, the related private key is _imaged_ via a verifiable derivation, which is checked in the spent key images database.
+> As such, double-spends can be detected quickly even across mempool transactions. 
+>
+> [Key Image Math](https://docs.getmonero.org/cryptography/asymmetric/key-image/) - [What chain splits mean (video)](https://www.youtube.com/watch?v=TlVsMTeT_nE)
+
+
+
 ## Tari Witness
 
 Using Tari merge mined blocks with Monero, we are able to prove that Tari witnessed both Qubic and Monero blocks making it to Tari chain.
