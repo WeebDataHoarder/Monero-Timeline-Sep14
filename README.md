@@ -39,11 +39,23 @@ This is pure madness, insanity, and malevolence. You can't combat someone insane
 
 > **Qubic is now unequivocally considered a malicious attacker, not only affecting end users but additionally harming their privacy permanently, even after warned _and proven_ of the consequences.**
 
+
+> **Qubic has doubled down on directly attacking Monero users, merchants and exchanges.**
+>
+> On September 18th 2025, from 16:46 to 17:29 UTC, Qubic mined an alternate chain from height 3502871 to 3502881, for a total of 11 blocks.
+> 
+> This alternate chain attempted and succeeded in orphaning the then canonical chain from height 3502871 to 3502880, for a total of 10 blocks, and invalidating one unlucky user transaction.
+> 
+> [Event archive](https://blocks.p2pool.observer/event/reorg_sep18_10/plot.svg)
+
+
 ## Invalidated transactions are being double-spent
 
 Thanks to Rucknium for [gathering data and writing verification code for their case study](https://gist.github.com/Rucknium/d055e95c92b66ba7109194720e9dff2e) for this section.
 
 As of September 17th at 16:40 there have been 58 double-spends from the previously attacker invalidated transactions. These were included in blocks produced by miners that had flushed their mempool.
+
+Note this does not mean the money was spent twice or doubled, re-spend is a better term. Original transaction was refunded, and if it was accepted by receiver, it would make it an assisted double-spend.
 
 Monero node operators with the invalidated transactions in their mempool (or loaded via RPC and the [data in this repository](data/transactions/)) can view a summary of these via the `print_pool_stats` command.
 ```
