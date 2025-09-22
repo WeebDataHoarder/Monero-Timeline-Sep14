@@ -55,7 +55,8 @@ Thanks to Rucknium for [gathering data and writing verification code for their c
 
 As of September 17th at 16:40 there have been 58 double-spends from the previously attacker invalidated transactions. These were included in blocks produced by miners that had flushed their mempool.
 
-Note this does not mean the money was spent twice or doubled, re-spend is a better term. Original transaction was refunded, and if it was accepted by receiver, it would make it an assisted double-spend.
+Note this does not mean the money was spent twice or doubled, re-spend is a better term.
+Original transaction was refunded, and if it was accepted by receiver, it would make it an assisted double-spend. From the point of view of Monero, it detects the two same key images as a double-spend attempt.
 
 Monero node operators with the invalidated transactions in their mempool (or loaded via RPC and the [data in this repository](data/transactions/)) can view a summary of these via the `print_pool_stats` command.
 ```
